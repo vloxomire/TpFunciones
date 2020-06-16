@@ -441,7 +441,7 @@ void Mostrar(char c)
 Haciendo uso nuevamente de nuestro 1)struct POSICICN y con 2)2 constantes de tamaC1o
 largo y ancho, 3)crear una funciC3n que verifique que la posiciC3n ingresada sea vC!lida.
 Hacer uso de la funciC3n como una condiciC3n para mostrar escrito si es vC!lida o no.*/
-struct POSICION
+/*struct POSICION
 {
     short x = 0;
     short y = 0;
@@ -449,33 +449,147 @@ struct POSICION
 const short LARGO = 2;
 const short ANCHO = 2;
 
-void IngrsarPosicion();
-void VerificarPosicion(POSICION m[LARGO][ANCHO]);
+bool IngresarPosicion(bool);
+bool VerificarPosicion(short, short);
 
 int main()
 {
+    bool verdad = false;
     POSICION pos;
     POSICION matriz[LARGO][ANCHO];
-    //Ingrsar la posicion con la estructura mandarla por valor para verificar si esta en los parametros del vector
-    VerificarPosicion(matriz);
+    do
+    {
+        verdad=IngresarPosicion(verdad);
+    } while (!verdad);
+    
     return 0;
 };
 
-void IngrsarPosicion() 
+bool IngresarPosicion(bool ve) 
 {
-
+    short valor1, valor2;
+    cout << "Ingrese un valor para X " << endl;
+    cin >> valor1;
+    cout << "Ingrese un valor para Y " << endl;
+    cin >> valor2;
+    ve=VerificarPosicion(valor1,valor2);
+    return ve;
 };
 
-void VerificarPosicion(POSICION m[LARGO][ANCHO])
+bool VerificarPosicion(short v1, short v2)
 {
+    bool ver1 = false;
+    if (v1 < 0 || v1 >= LARGO) 
+    {
+        cout << "X no esta contenido"<<endl;
+    }
+    else
+    {
+        cout << "El valor es correcto en X"<<endl;
+        ver1 = true;
+    }
+    if (v2 < 0 || v2 >= ANCHO)
+    {
+        cout << "Y no esta contenido" << endl;
+        ver1 = false;
+    }
+    else
+    {
+        cout << "El valor es correcto en Y" << endl;
+    }
+        return ver1;
+};*/
+//Ejercicio #10
+/*1)Crear una funciC3n para validar el input ingresado, 2)indicando el valor minimo y maximo posible.
+3)Probarla en un loop de menC:.*/
+/*void Ingresar(short,short);
+void Menu(short);
 
+int main()
+{
+    short valorMax = 2;
+    short valorMin = 0;
+    Ingresar(valorMin,valorMax);
+    return 0;
 };
-/*Ejercicio #10
-Crear una funciC3n para validar el input ingresado, indicando el valor minimo y maximo
-posible.
-Probarla en un loop de menC:.
-Ejercicio #11
-Similar al anterior, solo que en este caso sea una confirmaciC3n para salir (y/n) y devuelva
+
+void Ingresar(short vMin, short vMax) 
+{
+    cout << "1)Jugar,2)Salir" << endl;
+    short valor = 0;
+    do
+    {
+        cout << "Ingrese un valor del menu:" << endl;
+        cin >> valor;
+    } while (valor <= vMin || valor > vMax);
+    Menu(valor);
+};
+
+void Menu(short val) 
+{
+    switch (val)
+    {
+    case 1:
+        cout << "1)Jugar"<<endl;
+        system("PAUSE");
+        break;
+    case 2:
+        cout << "2)Salir";
+        break;
+    default:
+        break;
+    }
+};*/
+//Ejercicio #11
+/*Similar al anterior, solo que en este caso sea una confirmaciC3n para salir (y/n) y devuelva
 un bool.*/
+/*void Ingresar(short, short);
+void Menu(short);
 
+int main()
+{
+    short valorMax = 2;
+    short valorMin = 0;
+    Ingresar(valorMin, valorMax);
+    return 0;
+};
+
+void Ingresar(short vMin, short vMax)
+{
+    cout << "1)Jugar,2)Salir" << endl;
+    short valor;
+    do
+    {
+        valor = 0;
+        cout << "Ingrese un valor del menu:" << endl;
+        cin >> valor;
+    } while (valor <= vMin || valor > vMax);
+    Menu(valor);
+};
+
+void Menu(short val)
+{
+    bool salir = false;
+    do
+    {
+        char salida = ' ';
+        switch (val)
+        {
+        case 1:
+            cout << "1)Jugar" << endl;
+            system("PAUSE");
+            break;
+        case 2:
+            do
+            {
+                cout << "2)Salir(y/n)" << endl;
+                cin >> salida;
+            } while (salida != 'y');
+            salir = true;
+            break;
+        default:
+            break;
+        }
+    } while (!salir);
+};*/
 
