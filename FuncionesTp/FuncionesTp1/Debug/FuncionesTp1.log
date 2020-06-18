@@ -1,5 +1,4 @@
 ﻿  2Funciones.cpp
-C:\0-Cursos\C++\ImageCampus\TpFunciones\FuncionesTp\FuncionesTp1\2Funciones.cpp(137,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\0-Cursos\C++\ImageCampus\TpFunciones\FuncionesTp\FuncionesTp1\2Funciones.cpp(160,23): warning C4018: '<': no coinciden signed/unsigned
-C:\0-Cursos\C++\ImageCampus\TpFunciones\FuncionesTp\FuncionesTp1\2Funciones.cpp(162,26): warning C4018: '<': no coinciden signed/unsigned
-  FuncionesTp1.vcxproj -> C:\0-Cursos\C++\ImageCampus\TpFunciones\FuncionesTp\Debug\FuncionesTp1.exe
+C:\0-Cursos\C++\TpFunciones\FuncionesTp\FuncionesTp1\2Funciones.cpp(255,22): warning C4804: '>': uso no seguro del tipo 'bool' en la operación
+C:\0-Cursos\C++\TpFunciones\FuncionesTp\FuncionesTp1\2Funciones.cpp(255,34): warning C4804: '<': uso no seguro del tipo 'bool' en la operación
+  FuncionesTp1.vcxproj -> C:\0-Cursos\C++\TpFunciones\FuncionesTp\Debug\FuncionesTp1.exe

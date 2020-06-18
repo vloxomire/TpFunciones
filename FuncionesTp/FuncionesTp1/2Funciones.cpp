@@ -130,48 +130,148 @@ void MoverPosicion(PERSONAJE& per, POSICION p)
 devuelva ordenado de mayor a menor.
 Ampliarlo para que con un enum ORDENAMIENTO (MAYOR, MENOR) pasado como
 parámetro devuelva el arreglo de mayor a menor o viceversa.*/
-void OrdenarArreglo(short a[],short);
+/*enum class ORDENAMIENTO {MAYOR=1,MENOR};
+void OrdenarArreglo(short a[],short,ORDENAMIENTO);
+void CrearArray(short m[],short);
+void MostrarArray(short m[], short);
+ORDENAMIENTO Menu(ORDENAMIENTO);
 
 int main() 
 {
 	srand(time(NULL));
 	const short TAM = 5;
 	short matriz[TAM];
+	ORDENAMIENTO ord=ORDENAMIENTO::MAYOR;
 
-	for (size_t i = 0; i < TAM; i++)
-	{
-		matriz[i] = rand() % 10 + 1;
-	}
-	for (size_t i = 0; i < TAM; i++)
-	{
-		cout << matriz[i]<<",";
-	}
-	cout << endl;
-	OrdenarArreglo(matriz,TAM);
-	for (size_t i = 0; i < TAM; i++)
-	{
-		cout << matriz[i] << ",";
-	}
+	CrearArray(matriz,TAM);
+	ord=Menu(ord);
+	OrdenarArreglo(matriz,TAM,ord);
+	return 0;
 };
 
-void OrdenarArreglo(short a[],short t) 
+ORDENAMIENTO Menu(ORDENAMIENTO o) 
 {
-	short aux = 0;
+	short menu=0;
+	do
+	{
+		cout << "Elija como desea ordenar  el array:" << endl;
+		cout << "(1)Mayor a menor o (2)menor a mayor" << endl;
+		cin >> menu;
+	} while (!menu==1 || !menu==2);
+	
+	o = (ORDENAMIENTO)menu;
+	return o;
+};
+
+void CrearArray(short m[],short t) 
+{
 	for (size_t i = 0; i < t; i++)
 	{
-		for (size_t j = i+1; j < t; j++)
+		m[i] = rand() % 10 + 1;
+	}
+	MostrarArray(m,t);
+};
+
+void MostrarArray(short m[],short t) 
+{
+	for (size_t i = 0; i < t; i++)
+	{
+		cout << m[i] << ",";
+	}
+	cout << endl;
+};
+
+void OrdenarArreglo(short a[],short t,ORDENAMIENTO orde) 
+{
+	short aux = 0;
+	switch (orde)
+	{
+	case ORDENAMIENTO::MAYOR:
+		for (size_t i = 0; i < t; i++)
 		{
-			if (a[i]<a[j])
+			for (size_t j = i + 1; j < t; j++)
 			{
-				aux = a[i];
-				a[i] = a[j];
-				a[j] = aux;
+				if (a[i] < a[j])
+				{
+					aux = a[i];
+					a[i] = a[j];
+					a[j] = aux;
+				}
 			}
 		}
+		break;
+	case ORDENAMIENTO::MENOR:
+		for (size_t i = 0; i < t; i++)
+		{
+			for (size_t j = i + 1; j < t; j++)
+			{
+				if (a[i] > a[j])
+				{
+					aux = a[i];
+					a[i] = a[j];
+					a[j] = aux;
+				}
+			}
+		}
+		break;
+	default:
+		break;
 	}
-};
+	
+	MostrarArray(a, t);
+};*/
 //Ejercicio #5
 /*Crear un programa con una función que reciba un arreglo de chars y un carácter a
 eliminar.
 La función debe buscar y borrar los caracteres encontrados, corriendo el arreglo para
 dejarlo sin espacios.*/
+/*char CharAEliminar();
+void EliminarChar(char m[],char);
+void MostrarArray(char m[], short);
+
+int main()
+{
+	char let = ' ';
+	const short TAM = 45;
+	char arreglo[TAM] = {"espero que revisen estas resoluciones!"};
+	MostrarArray(arreglo,TAM);
+	let = CharAEliminar();
+	EliminarChar(arreglo,let);
+	return 0;
+};
+
+void MostrarArray(char m[], short t)
+{
+	cout << m << endl;
+};
+
+char CharAEliminar() 
+{
+	char letra;
+	do
+	{
+		cout << "Que char desea eliminar?" << endl;
+		cin >> letra;
+	} while (!letra>122 && !letra<97);
+	return letra;
+};
+
+void EliminarChar(char m[],char l)
+{
+	short indice = 0;
+	short aux = 0;
+	while (m[indice] != '\0')
+	{
+		if (m[indice]==l)
+		{
+			aux = indice;
+			while (m[aux]!='\0')
+			{
+				m[aux] = m[aux + 1];
+				aux++;
+			}
+		}
+		indice++;
+	}
+	MostrarArray(m, indice);
+};*/
